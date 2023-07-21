@@ -1,5 +1,4 @@
 import random
-from turtle import *
 #Screen()
 
 def waehle_zufaelliges_wort():
@@ -76,56 +75,56 @@ def galgen_ascii(station):
     =========''']
     print(ascii[station])
 
-def galgen_turtle(station):
-    radius = 8
-    torso = 35
-    arm = 0.85*torso
-    bein = 1.05*torso
-
-    if station == 0:
-        hideturtle()
-        pensize(3)
-        forward(100)
-        back(50)
-        left(90)
-        forward(160)
-        left(90)
-        forward(50)
-        left(90)
-        forward(20)
-    if station == 1:
-        penup()
-        forward(2*radius)
-        left(90)
-        pendown()
-        circle(radius)
-        """
-        right(90)
-        for _ in range(540):
-            forward(0.15)
-            left(1)
-        """
-    if station == 2:
-        right(90)
-        forward(torso)
-    if station == 3:
-        back(torso)
-        right(25)
-        forward(arm)
-    if station == 4:
-        back(arm)
-        left(50)
-        forward(arm)
-    if station == 5:
-        back(arm)
-        right(25)
-        forward(torso)
-        right(25)
-        forward(bein)
-    if station == 6:
-        back(bein)
-        left(50)
-        forward(bein)
+# def galgen_turtle(station):
+#    radius = 8
+#    torso = 35
+#    arm = 0.85*torso
+#    bein = 1.05*torso
+#
+#    if station == 0:
+#        hideturtle()
+#        pensize(3)
+#        forward(100)
+#        back(50)
+#        left(90)
+#        forward(160)
+#        left(90)
+#        forward(50)
+#        left(90)
+#        forward(20)
+#    if station == 1:
+#        penup()
+#        forward(2*radius)
+##        left(90)
+#        pendown()
+#        circle(radius)
+#        """
+#        right(90)
+#        for _ in range(540):
+#            forward(0.15)
+#            left(1)
+#        """
+#    if station == 2:
+#        right(90)
+#        forward(torso)
+#    if station == 3:
+#        back(torso)
+#        right(25)
+#        forward(arm)
+#    if station == 4:
+#        back(arm)
+#        left(50)
+#        forward(arm)
+#    if station == 5:
+#        back(arm)
+#        right(25)
+#        forward(torso)
+#        right(25)
+#        forward(bein)
+#    if station == 6:
+#        back(bein)
+#        left(50)
+#        forward(bein)
 
 def hangman_spielen(wort):
     # starte das Spiel
@@ -134,7 +133,7 @@ def hangman_spielen(wort):
     falsche = 0
     geratene_buchstaben = ""
     print("Aktuell gefundene Buchstaben:", wort_anzeigen(wort, geratene_buchstaben))
-    galgen_turtle(falsche)
+    galgen_ascii(falsche)
 
     while (not erraten) and ( falsche < 6 ):
         buchstabe = input("Bitte gib einen Buchstaben ein:\n").upper()
@@ -144,7 +143,7 @@ def hangman_spielen(wort):
             print(buchstabe, "ist nicht im Wort enthalten.")
             falsche += 1
             geratene_buchstaben += buchstabe
-            galgen_turtle(falsche)
+            galgen_ascii(falsche)
         else:
             print("Gut gemacht,", buchstabe, "ist im Wort enthalten.")
             geratene_buchstaben += buchstabe
